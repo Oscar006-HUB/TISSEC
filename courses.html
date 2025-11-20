@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/x-icon" href="CREST.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Courses - Tamale Islamic Senior High School</title>
+  <style>
+    /* ===== LOADING SCREEN ===== */
+    #loader {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: #1a5d1a;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.6s, visibility 0.6s;
+    }
+    #loader .logo {
+      height: 100px;
+      margin-bottom: 1rem;
+    }
+    #loader .text {
+      color: white;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+    body {
+      background-color: #f9fafb;
+      color: #2d3748;
+    }
+
+    header {
+      background-color: #1a5d1a;
+      padding: 0.8rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .crest {
+      height: 60px;
+      width: auto;
+    }
+
+    .school-name {
+      color: white;
+    }
+
+    .school-full {
+      font-size: 1.1rem;
+      font-weight: bold;
+      display: block;
+    }
+
+    .school-short {
+      font-size: 0.9rem;
+      opacity: 0.9;
+      display: block;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 21px;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      height: 3px;
+      width: 100%;
+      background-color: white;
+      border-radius: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.6rem 1.2rem;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+
+    .nav-links a:hover {
+      background-color: #0d3b0d;
+    }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      background-color: #1a5d1a;
+      padding: 1rem 0;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .mobile-menu a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.6rem 0;
+      width: 100%;
+      text-align: center;
+    }
+
+    .mobile-menu a:hover {
+      background-color: #0d3b0d;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+      line-height: 1.6;
+    }
+
+    h1 {
+      color: #1a5d1a;
+      margin-bottom: 1.5rem;
+    }
+
+    h2 {
+      color: #2b6c2b;
+      margin: 1.4rem 0 0.8rem;
+    }
+
+    .course-card {
+      background: #f0fdf4;
+      border-left: 4px solid #1a5d1a;
+      padding: 1.2rem;
+      border-radius: 0 6px 6px 0;
+      margin-bottom: 1.5rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background-color: #e2e8f0;
+      color: #4a5568;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 768px) {
+      .header-left { gap: 0.5rem; }
+      .crest { height: 50px; }
+      .school-full { font-size: 0.9rem; }
+      .school-short { font-size: 0.8rem; }
+
+      .nav-links { display: none; }
+
+      .hamburger {
+        display: flex;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+      }
+
+      header {
+        padding: 0.8rem 50px 0.8rem 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .header-left {
+        margin-bottom: 0.8rem;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="loader">
+    <img src="CREST.jpg" alt="TISSEC" class="logo">
+    <div class="text">Tamale Islamic Senior High School</div>
+  </div>
+
+  <header>
+    <div class="header-left">
+      <img src="CREST.jpg" alt="TISSEC Crest" class="crest">
+      <div class="school-name">
+        <span class="school-full">Tamale Islamic Senior High School</span>
+        <span class="school-short">TISSEC</span>
+      </div>
+    </div>
+
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <div class="nav-links">
+      <a href="index.html">HOME</a>
+      <a href="about.html">ABOUT</a>
+      <a href="courses.html">COURSES</a>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">HOME</a>
+      <a href="about.html">ABOUT</a>
+      <a href="courses.html">COURSES</a>
+    </div>
+  </header>
+
+  <main>
+  <h1>Our Courses</h1>
+  <p>
+    Tamale Islamic Senior High School (TISSEC) offers three core programs approved by the 
+    Ghana Education Service (GES). Each program includes specific elective combinations 
+    that allow students to tailor their studies to their interests and career goals.
+  </p>
+
+  <!-- General Science -->
+  <div class="course-card">
+    <h2>1. General Science</h2>
+    <p>Students in General Science may choose from the following elective combinations:</p>
+    <ul style="padding-left: 1.5rem; margin-top: 0.5rem;">
+      <li><strong>Science and Mathematics</strong></li>
+      <li><strong>Science with Computer Science</strong></li>
+      <li><strong>Science with Economics</strong></li>
+      <li><strong>Science with Agricultural Science</strong></li>
+      <li><strong>Science with Geography</strong></li>
+    </ul>
+    <p style="margin-top: 0.8rem;">
+      These combinations prepare students for careers in engineering, health sciences, 
+      data & technology, economics, environmental science, and more.
+    </p>
+  </div>
+
+  <!-- Home Economics -->
+  <div class="course-card">
+    <h2>2. Home Economics</h2>
+    <p>Home Economics is offered in two main options, each with specific subject pairings:</p>
+    
+    <h3 style="color: #1a5d1a; margin: 1rem 0 0.5rem;">• Food and Nutrition Option</h3>
+    <ul style="padding-left: 1.5rem; margin-top: 0.3rem;">
+      <li>Food and Nutrition with <strong>Biology</strong></li>
+      <li>Food and Nutrition with <strong>Chemistry</strong></li>
+    </ul>
+
+    <h3 style="color: #1a5d1a; margin: 1rem 0 0.5rem;">• Textiles and Clothing Option</h3>
+    <ul style="padding-left: 1.5rem; margin-top: 0.3rem;">
+      <li>Textiles and Clothing with <strong>Biology</strong></li>
+      <li>Textiles and Clothing with <strong>Chemistry</strong></li>
+    </ul>
+
+    <p style="margin-top: 0.8rem;">
+      These combinations support careers in nutrition, food technology, hospitality, 
+      fashion design, textile engineering, and health sciences.
+    </p>
+  </div>
+
+  <!-- Agricultural Science -->
+  <div class="course-card">
+    <h2>3. Agricultural Science</h2>
+    <p>Students in Agricultural Science may choose from the following combinations:</p>
+    <ul style="padding-left: 1.5rem; margin-top: 0.5rem;">
+      <li>Agricultural Science with <strong>Elective Mathematics</strong></li>
+      <li>Agricultural Science with <strong>Computer Science</strong></li>
+    </ul>
+    <p style="margin-top: 0.8rem;">
+      These pairings prepare students for modern agribusiness, farm management, 
+      agricultural engineering, data-driven farming, and agri-tech innovation.
+    </p>
+  </div>
+
+  <p style="margin-top: 1.8rem; font-weight: bold; color: #1a5d1a;">
+    All students also take core subjects including <strong> 
+    English, Mathematics, Integrated Science, and Social Studies, as required by the GES curriculum.
+  </strong>
+  </p>
+</main>
+
+  <footer>
+    <p>&copy; 2025 Tamale Islamic Senior High School. All rights reserved.</p>
+  </footer>
+
+  <script>
+    window.addEventListener('load', () => {
+      const loader = document.getElementById('loader');
+      loader.style.opacity = '0';
+      setTimeout(() => {
+        loader.style.visibility = 'hidden';
+      }, 600);
+    });
+
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+    }
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) {
+        document.getElementById('mobileMenu').style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>

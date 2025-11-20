@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- FAVICON -->
+  <link rel="icon" type="image/png" href="CREST.png">
+  
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Home - Tamale Islamic Science Senior High School</title>
+  
+  <style>
+    /* ===== LOADING SCREEN ===== */
+    #loader {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: #1a5d1a;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.6s, visibility 0.6s;
+    }
+    #loader .logo {
+      height: 100px;
+      margin-bottom: 1rem;
+    }
+    #loader .text {
+      color: white;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
+
+    /* ===== GLOBAL STYLES ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+    body {
+      background-color: #f9fafb;
+      color: #2d3748;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      background-color: #1a5d1a;
+      padding: 0.8rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .crest {
+      height: 60px;
+      width: auto;
+    }
+    .school-name {
+      color: white;
+    }
+    .school-full {
+      font-size: 1.1rem;
+      font-weight: bold;
+      display: block;
+    }
+    .school-short {
+      font-size: 0.9rem;
+      opacity: 0.9;
+      display: block;
+    }
+
+    /* ===== MOBILE MENU ===== */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 21px;
+      cursor: pointer;
+    }
+    .hamburger span {
+      height: 3px;
+      width: 100%;
+      background-color: white;
+      border-radius: 2px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+    .nav-links a, .mobile-menu a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.6rem 1.2rem;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+    .nav-links a:hover, .mobile-menu a:hover {
+      background-color: #0d3b0d;
+    }
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      background-color: #1a5d1a;
+      padding: 1rem 0;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    /* ===== MAIN CONTENT ===== */
+    main {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+      line-height: 1.6;
+    }
+    h1 {
+      color: #1a5d1a;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    p {
+      margin-bottom: 1rem;
+    }
+
+    /* ===== SLIDER ===== */
+    .slider {
+      width: 100%;
+      height: 400px;
+      overflow: hidden;
+      border-radius: 10px;
+      margin: 2rem 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .slides {
+      display: flex;
+      transition: transform 0.8s ease-in-out;
+      height: 100%;
+    }
+    .slides img {
+      min-width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ===== ANTHEM SECTION ===== */
+    .anthem-section {
+      background: #f8fafc;
+      border-radius: 10px;
+      padding: 1.8rem;
+      margin: 2.5rem 0;
+      border-left: 4px solid #1a5d1a;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .anthem-section h2 {
+      color: #1a5d1a;
+      text-align: center;
+      margin-top: 0;
+    }
+    .anthem-credit {
+      text-align: center;
+      color: #2b6c2b;
+      font-style: italic;
+      margin-bottom: 1.5rem;
+    }
+    .refrain-box {
+      background: #f0fdf4;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      border-left: 3px solid #1a5d1a;
+    }
+    .refrain-box p {
+      font-weight: bold;
+      color: #1a5d1a;
+      margin: 0;
+    }
+    .anthem-note {
+      font-size: 0.9rem;
+      color: #4a5568;
+      margin-top: 0.5rem;
+    }
+
+    /* ===== MAP SECTION ===== */
+    .map-section {
+      margin: 2.5rem 0;
+      text-align: center;
+    }
+    .map-section h2 {
+      color: #1a5d1a;
+      margin-bottom: 1.2rem;
+    }
+    .map-container {
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background-color: #e2e8f0;
+      color: #4a5568;
+      margin-top: 3rem;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .header-left { gap: 0.5rem; }
+      .crest { height: 50px; }
+      .school-full { font-size: 0.9rem; }
+      .school-short { font-size: 0.8rem; }
+      .nav-links { display: none; }
+      .hamburger {
+        display: flex;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+      }
+      header {
+        padding: 0.8rem 50px 0.8rem 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .header-left {
+        margin-bottom: 0.8rem;
+        width: 100%;
+      }
+      .slider { height: 280px; }
+      .anthem-section { padding: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- LOADING SCREEN -->
+  <div id="loader">
+    <img src="CREST.jpg" alt="TISSEC" class="logo">
+    <div class="text">Tamale Islamic Science Senior High School</div>
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-left">
+      <img src="CREST.jpg" alt="TISSEC Crest" class="crest">
+      <div class="school-name">
+        <span class="school-full">Tamale Islamic Science Senior High School</span>
+        <span class="school-short">TISSEC</span>
+      </div>
+    </div>
+
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <div class="nav-links">
+      <a href="index.html">HOME</a>
+      <a href="courses.html">COURSES</a>
+      <a href="about.html">ABOUT</a>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">HOME</a>
+      <a href="courses.html">COURSES</a>
+      <a href="about.html">ABOUT</a>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <h1>Welcome to Tamale Islamic Science Senior High School</h1>
+    <p>
+      TISSEC is a premier government institution dedicated to nurturing excellence in both Islamic values and scientific education.
+    </p>
+
+    <!-- IMAGE SLIDER -->
+    <div class="slider">
+      <div class="slides" id="slides">
+        <img src="NSMQ.jpg" alt="NSMQ Contestants">
+        <img src="JUBILATE.jpg" alt="Students Celebrating">
+        <img src="NSMQ TEAM.jpg" alt="2025 NSMQ Team">
+        <img src="CONTEST.jpg" alt="School Event">
+      </div>
+    </div>
+
+    <!-- 🎵 FULL OFFICIAL ANTHEM -->
+    <div class="anthem-section">
+      <h2>Tamale Islamic Science Senior High School Anthem</h2>
+      <p class="anthem-credit">Composed by Sheriff Ghale • May 2022</p>
+
+      <div class="refrain-box">
+        <p>
+          <strong>Refrain:</strong><br>
+          Tamale Islamic Science!<br>
+          Tamale Islamic Senior High!<br>
+          Tamale Islamic Science!<br>
+          Tamale Islamic Senior High School of Science!
+        </p>
+        <p class="anthem-note">(Repeat)</p>
+      </div>
+
+      <div>
+        <p><strong>Verse:</strong></p>
+        <p>
+          We are the best at what we do<br>
+          As we’re growing every height<br>
+          And we do the best we do<br>
+          And we’re always shining bright<br><br>
+          
+          In knowledge and morals<br>
+          In skills and attitudes<br>
+          Knowledge – (seek) knowledge<br>
+          Supplication (in supplicating) to Allah and/in service to mankind
+        </p>
+      </div>
+
+      <div style="margin: 1.5rem 0;">
+        <p><strong>Bridge:</strong></p>
+        <p>
+          Allah give us strength<br>
+          To fulfill our hopes and dreams<br>
+          Of rising high, and high, and high<br><br>
+          
+          Allah give us strength<br>
+          To fulfill our hopes and dreams<br>
+          Of going far, and far, and far and wide
+        </p>
+        <p class="anthem-note">(Repeat Verse & Bridge)</p>
+      </div>
+
+      <div class="refrain-box">
+        <p>
+          <strong>Refrain:</strong><br>
+          Tamale Islamic Science!<br>
+          Tamale Islamic Senior High!<br>
+          Tamale Islamic Science!<br>
+          Tamale Islamic Senior High School of Science!
+        </p>
+        <p class="anthem-note">(Repeat)</p>
+      </div>
+
+      <p style="text-align: center; font-weight: bold; color: #1a5d1a; font-size: 1.3rem; margin-top: 1.2rem;">
+        WE ARE THE BEST AT WHAT WE DO!
+      </p>
+    </div>
+
+    <p>
+      Located in the heart of Tamale, we provide a conducive learning environment 
+      for students to thrive academically, morally, and spiritually.
+    </p>
+
+    <!-- FULL-WIDTH MAP -->
+    <div class="map-section">
+      <h2>📍 Visit Us</h2>
+      <p style="max-width: 600px; margin: 0 auto 1.2rem;">
+        Tamale Islamic Science Senior High School<br>
+        Tamale, Northern Region, Ghana
+      </p>
+      <div class="map-container">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3935.54498622222!2d-0.8379378267554286!3d9.461235682076994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfd43f2725322f49%3A0x47318284b25591c4!2sTamale%20Islamic%20Science%20Senior%20High%20School!5e0!3m2!1sen!2sgh!4v1763648239949!5m2!1sen!2sgh" 
+          width="100%" 
+          height="400" 
+          style="border:0; display: block;"
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+      <p style="margin-top: 1rem;">
+        <a href="https://maps.app.goo.gl/KbrGq3mTLEXv7xx86" 
+           target="_blank" 
+           style="color: #1a5d1a; font-weight: bold; text-decoration: none;">
+          🗺️ Get Directions on Google Maps
+        </a>
+      </p>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 Tamale Islamic Science Senior High School. All rights reserved.</p>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    // Hide loader on page load
+    window.addEventListener('load', () => {
+      const loader = document.getElementById('loader');
+      loader.style.opacity = '0';
+      setTimeout(() => {
+        loader.style.visibility = 'hidden';
+      }, 600);
+    });
+
+    // Mobile menu toggle
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+    }
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) {
+        document.getElementById('mobileMenu').style.display = 'none';
+      }
+    });
+
+    // Auto-slider
+    if (document.getElementById('slides')) {
+      let i = 0;
+      const slides = document.getElementById('slides');
+      const total = slides.children.length;
+      setInterval(() => {
+        i = (i + 1) % total;
+        slides.style.transform = `translateX(-${i * 100}%)`;
+      }, 5000);
+    }
+  </script>
+</body>
+</html>

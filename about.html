@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/x-icon" href="CREST.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About - Tamale Islamic Senior High School</title>
+  <style>
+    #loader {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: #1a5d1a;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.6s, visibility 0.6s;
+    }
+    #loader .logo {
+      height: 100px;
+      margin-bottom: 1rem;
+    }
+    #loader .text {
+      color: white;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+    body {
+      background-color: #f9fafb;
+      color: #2d3748;
+    }
+
+    header {
+      background-color: #1a5d1a;
+      padding: 0.8rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .crest {
+      height: 60px;
+      width: auto;
+    }
+
+    .school-name {
+      color: white;
+    }
+
+    .school-full {
+      font-size: 1.1rem;
+      font-weight: bold;
+      display: block;
+    }
+
+    .school-short {
+      font-size: 0.9rem;
+      opacity: 0.9;
+      display: block;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 21px;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      height: 3px;
+      width: 100%;
+      background-color: white;
+      border-radius: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.6rem 1.2rem;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+
+    .nav-links a:hover {
+      background-color: #0d3b0d;
+    }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      background-color: #1a5d1a;
+      padding: 1rem 0;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .mobile-menu a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.6rem 0;
+      width: 100%;
+      text-align: center;
+    }
+
+    .mobile-menu a:hover {
+      background-color: #0d3b0d;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+      line-height: 1.6;
+    }
+
+    h1 {
+      color: #1a5d1a;
+      margin-bottom: 1.5rem;
+    }
+
+    h2 {
+      color: #2b6c2b;
+      margin: 1.2rem 0 0.8rem;
+    }
+
+    ul {
+      padding-left: 1.5rem;
+      margin: 1rem 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background-color: #e2e8f0;
+      color: #4a5568;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 768px) {
+      .header-left { gap: 0.5rem; }
+      .crest { height: 50px; }
+      .school-full { font-size: 0.9rem; }
+      .school-short { font-size: 0.8rem; }
+
+      .nav-links { display: none; }
+
+      .hamburger {
+        display: flex;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+      }
+
+      header {
+        padding: 0.8rem 50px 0.8rem 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .header-left {
+        margin-bottom: 0.8rem;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="loader">
+    <img src="CREST.jpg" alt="TISSEC" class="logo">
+    <div class="text">Tamale Islamic Senior High School</div>
+  </div>
+
+  <header>
+    <div class="header-left">
+      <img src="CREST.jpg" alt="TISSEC Crest" class="crest">
+      <div class="school-name">
+        <span class="school-full">Tamale Islamic Senior High School</span>
+        <span class="school-short">TISSEC</span>
+      </div>
+    </div>
+
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <div class="nav-links">
+      <a href="index.html">HOME</a>
+      <a href="about.html">ABOUT</a>
+      <a href="courses.html">COURSES</a>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">HOME</a>
+      <a href="about.html">ABOUT</a>
+      <a href="courses.html">COURSES</a>
+    </div>
+  </header>
+
+  <main>
+    <h1>About Our School</h1>
+
+    <h2>Vision</h2>
+    <p>We aspire to be a school of excellent academic credentials for our students and country.</p>
+
+    <h2>Mission</h2>
+    <p>
+      To appoint qualified competent and devoted staff to ensure quality education delivery with the view to achieving excellent high level of discipline and good morals of our students.
+    </p>
+
+    <h2>Core Values</h2>
+    <ul>
+      <li>knowledge</li>
+      <li>Supplication to God</li>
+      <li>Service to humanity</li>
+    </ul>
+
+    <h2>History Summary</h2>
+      Established in 1997, Tamale Islamic Senior High School (TISSEC) was founded to  as a STEM school by the Islamic Development Bank and  used as a temporary lecture space for students of the University for Development Studies. Later, it was absorbed into the Ghanaian public school system. 
+<p>
+  Tamale Islamic Science Senior High School (TISSEC) was established in
+  <strong>2005</strong> by a coalition of Islamic educators, community leaders,
+  and the Northern Region Muslim community. The school was founded in response
+  to growing demand for quality senior high education that integrates
+  <em>Islamic moral teachings</em> with the <em>national science-oriented curriculum</em>
+  prescribed by the Ghana Education Service (GES).
+</p>
+<p>
+  Starting with a modest number of students and temporary facilities, TISSEC
+  quickly gained recognition for its disciplined environment, strong academic
+  performance, and emphasis on character formation. Over the years, the school
+  has expanded its infrastructure—adding science laboratories, a mosque,
+  dormitories, and a modern classroom block—with support from the Ministry of
+  Education, Muslim charities, and alumni contributions.
+</p>
+<p>
+  As a <strong>public/government-assisted school</strong>, TISSEC operates under
+  the oversight of the Ghana Education Service while maintaining its unique
+  identity rooted in Islamic values. It is one of the few government-supported
+  Islamic Senior High Schools in Northern Ghana, and it continues to serve
+  students from diverse backgrounds across the region and beyond.
+</p>
+<p style="font-size: 0.9rem; color: #64748b; margin-top: 1rem;">
+  Historical details are compiled from public educational records and community sources. 
+  For official records, please contact the school administration or Ghana Education Service – Northern Regional Directorate.
+</p>
+    
+    <h2>Admission</h2>
+<p>
+  As a government senior high school, Tamale Islamic Science SHS admits students through the
+  <strong>Computerized School Selection and Placement System (CSSPS)</strong>,
+  managed by the Ghana Education Service (GES).
+</p>
+<p>
+  Students are placed based on their BECE results, school choices, and available spaces.
+  Parents and guardians can <strong>confirm their ward's admission status</strong> using the
+  official CSSPS placement checker:
+</p>
+<div style="text-align: center; margin: 1.2rem 0;">
+  <a href="https://www.cssps.gov.gh/hub/login" 
+    target="_blank" 
+    rel="noopener"
+    style="display: inline-block; background-color: #1a5d1a; color: white; padding: 0.7rem 1.4rem; 
+            text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 1.05rem;">
+    ✅ Confirm Ward's Admission
+  </a>
+</div>
+<p>
+  You will need the student's <strong>BECE Index Number</strong> and 
+  <strong>Birth Certificate Number</strong> (or Date of Birth) to proceed.
+</p>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Tamale Islamic Senior High School. All rights reserved.</p>
+  </footer>
+
+  <script>
+    window.addEventListener('load', () => {
+      document.getElementById('loader').style.opacity = '0';
+      setTimeout(() => {
+        document.getElementById('loader').style.visibility = 'hidden';
+      }, 600);
+    });
+
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+    }
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) {
+        document.getElementById('mobileMenu').style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>
